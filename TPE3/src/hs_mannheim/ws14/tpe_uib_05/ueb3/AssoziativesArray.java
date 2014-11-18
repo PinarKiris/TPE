@@ -13,7 +13,8 @@ public interface AssoziativesArray {
 	public int size ();
 	public void update ();
 	public void forEach ();
-	
+	public void extractAll ();
+	public void map();
 
 
 
