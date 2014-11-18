@@ -1,5 +1,5 @@
 
 public class Assoziativ {
 
-	
+	//kdkdk
 }
