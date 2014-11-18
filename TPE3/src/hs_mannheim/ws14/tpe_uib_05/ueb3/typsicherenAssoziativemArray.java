@@ -45,9 +45,9 @@ public class typsicherenAssoziativemArray implements AssoziativesArray  {
 	}
 
 	@Override
-	public void remove() {
+	public int remove() {
 		// TODO Automatisch generierter Methodenstub
-		
+		return 0;
 	}
 
 	@Override

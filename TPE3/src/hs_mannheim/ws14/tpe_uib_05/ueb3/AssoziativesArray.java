@@ -9,7 +9,7 @@ public interface AssoziativesArray {
 	public int isEmpty ();
 	public void put ();
 	public void putAll ();
-	public void remove ();
+	public int remove ();
 	public int size ();
 	public void update ();
 	public void forEach ();
