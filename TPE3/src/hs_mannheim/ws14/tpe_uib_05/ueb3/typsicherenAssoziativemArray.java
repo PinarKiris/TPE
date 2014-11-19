@@ -4,80 +4,82 @@ public class typsicherenAssoziativemArray implements AssoziativesArray  {
 
 	@Override
 	public void clear() {
-		// TODO Automatisch generierter Methodenstub
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public int containsValue() {
-		// TODO Automatisch generierter Methodenstub
-		return 0;
+	public boolean containsValue(Object value) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
-	public int containsKey() {
-		// TODO Automatisch generierter Methodenstub
-		return 0;
+	public boolean containsKey(Object key) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public int get() {
-		// TODO Automatisch generierter Methodenstub
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int isEmpty() {
-		// TODO Automatisch generierter Methodenstub
-		return 0;
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public void put() {
-		// TODO Automatisch generierter Methodenstub
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void putAll() {
-		// TODO Automatisch generierter Methodenstub
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public int remove() {
-		// TODO Automatisch generierter Methodenstub
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int size() {
-		// TODO Automatisch generierter Methodenstub
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public void update() {
-		// TODO Automatisch generierter Methodenstub
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void forEach() {
-		// TODO Automatisch generierter Methodenstub
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void extractAll() {
-		// TODO Automatisch generierter Methodenstub
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void map() {
-		// TODO Automatisch generierter Methodenstub
+		// TODO Auto-generated method stub
 		
 	}
+
+
 
 }
