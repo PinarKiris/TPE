@@ -8,13 +8,12 @@ public class IntegerAssociativeArray implements AssoziativesArray {
 	//Baumknoten <Integer> i = new Baumknoten <Integer> ("1,2,3,4"); generics Baumknoten
 	
 	ArrayList <Integer> list = new ArrayList <Integer> ();
-	Map<Integer> map = new HashMap<>();
-	private int size;
 	
+	private int size;
+
 
 	public void clear() {
-		for (int i = 0, i < size, i++)
-			list [i] = 0;
+		
 	}
 		
 
