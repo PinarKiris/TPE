@@ -1,8 +1,11 @@
 package hs_mannheim.ws14.tpe_uib_05.ueb3;
 
 
-
 public class StringAssociativeArray implements AssoziativesArray {
+	
+	public static void main(String[] args) {
+		Baumknoten <String> s = new Baumknoten <String> ("a,b,c,d");
+	}
 
 	private int size;
 

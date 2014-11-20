@@ -14,9 +14,9 @@ public interface AssoziativesArray {
 
 	public void clear();
 
-	public boolean containsValue();
+	public boolean containsValue(Object value);
 
-	public boolean containsKey();
+	public boolean containsKey(Object key);
 
 	public int get(Object key);
 
@@ -37,5 +37,7 @@ public interface AssoziativesArray {
 	public void extractAll();
 
 	public void map();
+
+	
 
 }
