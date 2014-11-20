@@ -13,5 +13,12 @@ public class Baumknoten <T> {
 		return this.links + "," + this.rechts;
 	}
 	
+	public T getLinks(){
+		return links;
+	}
+	
+	public T getRechts(){
+		return rechts;
+	}
 
 }

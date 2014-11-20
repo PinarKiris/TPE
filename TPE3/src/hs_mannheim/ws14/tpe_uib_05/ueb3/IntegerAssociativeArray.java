@@ -7,97 +7,91 @@ public class IntegerAssociativeArray implements AssoziativesArray {
 	public static void main(String[] args) {
 	//Baumknoten <Integer> i = new Baumknoten <Integer> ("1,2,3,4"); generics Baumknoten
 	
-	ArrayList <Integer> arrlist = new ArrayList <Integer> (100);
-}
+	ArrayList <Integer> list = new ArrayList <Integer> ();
+	Map<Integer> map = new HashMap<>();
 	private int size;
 	
-	
 
-	@Override
 	public void clear() {
 		for (int i = 0, i < size, i++)
-			arrlist [i] = 0;
+			list [i] = 0;
 	}
-				
 		
-	
 
-	@Override
 	public boolean containsValue(Object value) {
-		if (value == arrlist)
+		if (value == list)
 			return true;
 		else
 
 		return false;
 	}
 
-	@Override
+	
 	public boolean containsKey(Object key) {
 	
-		if(key == arrlist)
+		if(key == list)
 			return true;
 		else
 			
 		return false;
 	}
 
-	@Override
+
 	public int get(Object key) {
 		
 
 		return (int) key;
 	}
 
-	@Override
+
 	public boolean isEmpty() {
-		if (arrlist == 0)
+		if (list == 0)
 			return true;
 		else
 
 		return false;
 	}
 
-	@Override
+
 	public void put() {
 
 	}
 
-	@Override
+	
 	public void putAll() {
 
 	}
 
-	@Override
+	
 	public int remove() {
-		arrlist.remove();
+		list.remove();
 
-		return arrlist.remove;
+		return list.remove;
 	}
 
-	@Override
+	
 	public int size() {
 
 		return (size);
 	}
 
-	@Override
-	public void update() {
-	//Value und size
-		
 
+	public void update (Object value) {
+		update (value);
+	
 	}
 
-	@Override
+
 	public void forEach() {
 
 	}
 
-	@Override
+	
 	public void extractAll() {
 
 	}
 
-	@Override
+
 	public void map() {
 
 	}

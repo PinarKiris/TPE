@@ -30,13 +30,14 @@ public interface AssoziativesArray {
 
 	public int size();
 
-	public void update();
+	public void update(Object value);
 
 	public void forEach();
 
 	public void extractAll();
 
 	public void map();
+
 
 	
 
