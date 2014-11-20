@@ -1,14 +1,14 @@
 package hs_mannheim.ws14.tpe_uib_05.ueb3;
 
-public class Baumknoten  {
+public class Baumknoten <K, V> {
 	Baumknoten links;
 	Baumknoten rechts;
-	String key;
-	int value;
+	K key;
+	V value;
 	
 	
 	
-	public Baumknoten (Baumknoten links, Baumknoten rechts, String key, int value){
+	public Baumknoten (Baumknoten links, Baumknoten rechts, K key, V value){
 		
 	
 		this.links = links;

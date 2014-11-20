@@ -1,47 +1,69 @@
 package hs_mannheim.ws14.tpe_uib_05.ueb3;
 
-	public class Baum implements AssoziativesArray{
-	
-	Baumknoten wurzel;
-	 
-	public Baum (Baumknoten wurzel){
-		this.wurzel = wurzel;
+	public class Baum <K, V> implements AssoziativesArray <K,V>{
 		
-	}
+		public class Baumknoten <K, V>{
+			Baumknoten <K,V> links;
+			Baumknoten <K, V> rechts;
+			private K key;
+			private V value;
+			
+		
+
+
+	
+		public Baumknoten (K key, V value){
+			this.key = key;
+			this.value = value;
+			this.links = null;
+			this.rechts = null;
+			
+		
+		}
+		}
+		Baumknoten <K, V> wurzel = null;
 
 	
 	public void clear() {
-		Object Baumknoten = null;
+		wurzel = null;
 	}
-
 	
 	public boolean containsValue(Object value) {
-		
-	}
-
 	
-	public boolean containsKey(Object key) {
-		if (key == list)
-			return true;
-		else
 		return false;
 	}
+	
+	
+	public boolean containsKey(Object key) {
+		
+		return false;
+	}
+
 
 	
 	public int get(Object key) {
-		return key;
+		
+		return 0;
 	}
 
+
+	
+	public void put() {
+		
+		
+	}
+	
+	
+	
+	
 
 	public boolean isEmpty() {
-		if (list == 0)
-			return true;
-		else
-		return false;
+		return wurzel == null;
+		
 	}
 
 
-	public void put(Baumknoten links, Baumknoten rechts) {
+	public void put(K key, V value) {
 		
 		
 		
@@ -87,6 +109,16 @@ package hs_mannheim.ws14.tpe_uib_05.ueb3;
 	public void map() {
 				
 	}
+
+
+	
+
+
+	
+
+		
+	}
 	
 	
-}
+	
+

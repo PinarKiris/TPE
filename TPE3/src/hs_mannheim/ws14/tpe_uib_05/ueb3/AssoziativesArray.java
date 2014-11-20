@@ -10,7 +10,7 @@ package hs_mannheim.ws14.tpe_uib_05.ueb3;
  * 
  */
 
-public interface AssoziativesArray {
+public interface AssoziativesArray <K, V> {
 
 	public void clear();
 
