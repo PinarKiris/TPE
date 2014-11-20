@@ -6,7 +6,7 @@ package hs_mannheim.ws14.tpe_uib_05.ueb3;
  * bei, indem es die jeweiligen Methoden implementiert.
  * 
  * @author Dennis Keßler 1326697
- * @author Pınar Kırış
+ * @author Pınar Kırış 1332722
  * 
  */
 

@@ -1,38 +1,53 @@
 package hs_mannheim.ws14.tpe_uib_05.ueb3;
 
-public class Baumknoten <L,R> {
-	private L left;
-	private R right;
-	private int size;
+public class Baumknoten  {
+	Baumknoten links;
+	Baumknoten rechts;
+	String key;
+	int value;
 	
 	
-	public Baumknoten (L left, R right){
 	
-		this.left = left;
-		this.right = right;
+	public Baumknoten (Baumknoten links, Baumknoten rechts, String key, int value){
 		
+	
+		this.links = links;
+		this.rechts = rechts;
+		this.key = key;
+		this.value = value;
 	}
 	
 	public final String toString (){
-		return this.left + "=" + this.right;
+		return this.links + "=" + this.rechts;
 	}
 	
-	public final L getLeft(){
-		return left;
+	public final Baumknoten getLinks(){
+		return links;
 	}
 	
-	public final R getRight(){
-		return right;
+	public final Baumknoten getRechts(){
+		return rechts;
 	}
 	
-	public boolean containsKey (Object key){
-		return Baumknoten ((left), key != null);
 	
-	}
 	
-	public boolean isEmpty (){
-		return size == 0;		
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

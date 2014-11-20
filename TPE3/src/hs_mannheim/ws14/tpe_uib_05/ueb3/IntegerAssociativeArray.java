@@ -37,8 +37,7 @@ public class IntegerAssociativeArray implements AssoziativesArray {
 
 
 	public int get(Object key) {
-		
-
+	
 		return (int) key;
 	}
 
