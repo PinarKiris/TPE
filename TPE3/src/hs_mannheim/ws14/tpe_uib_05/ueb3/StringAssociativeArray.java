@@ -1,12 +1,11 @@
 package hs_mannheim.ws14.tpe_uib_05.ueb3;
 
-
 import java.util.HashMap;
 
 public class StringAssociativeArray implements AssoziativesArray {
-	
+
 	public static void main(String[] args) {
-		Baumknoten <String> s = new Baumknoten <String> ("a,b,c,d");
+		Baumknoten<String> s = new Baumknoten<String>("a,b,c,d");
 	}
 
 	private int size;
@@ -37,8 +36,8 @@ public class StringAssociativeArray implements AssoziativesArray {
 	@Override
 	public boolean isEmpty() {
 
-		String x="";
-		if(x.isEmpty()){
+		String x = "";
+		if (x.isEmpty()) {
 			return true;
 		}
 		return false;

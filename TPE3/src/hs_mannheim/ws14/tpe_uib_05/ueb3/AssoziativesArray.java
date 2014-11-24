@@ -16,7 +16,7 @@ public interface AssoziativesArray <K, V> {
 
 	public boolean containsValue(Object value);
 
-	public boolean containsKey(Object key);
+	public boolean containsKey();
 
 	public int get(Object key);
 
