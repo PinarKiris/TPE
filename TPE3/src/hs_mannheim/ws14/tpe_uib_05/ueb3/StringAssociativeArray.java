@@ -2,7 +2,7 @@ package hs_mannheim.ws14.tpe_uib_05.ueb3;
 
 import java.util.HashMap;
 
-public class StringAssociativeArray implements AssoziativesArray {
+public class StringAssociativeArray implements AssociativeArray {
 
 	public static void main(String[] args) {
 		Baumknoten<String> s = new Baumknoten<String>("a,b,c,d");

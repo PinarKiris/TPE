@@ -3,7 +3,7 @@ package hs_mannheim.ws14.tpe_uib_05.ueb3;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Baum<K, V> implements AssoziativesArray<K, V> {
+public class Baum<K, V> implements AssociativeArray<K, V> {
 
 	public class Baumknoten<K, V> {
 		Baumknoten<K, V> links;
@@ -44,7 +44,8 @@ public class Baum<K, V> implements AssoziativesArray<K, V> {
 		}
 		return false;
 	}
-
+	
+	@Override
 	public boolean containsKey(K key) {
 		return containsKey(wurzel, key);
 	}
@@ -115,6 +116,7 @@ public class Baum<K, V> implements AssoziativesArray<K, V> {
 	public void map() {
 
 	}
+
 
 
 

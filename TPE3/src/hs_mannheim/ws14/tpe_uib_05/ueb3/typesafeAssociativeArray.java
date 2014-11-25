@@ -1,29 +1,30 @@
 package hs_mannheim.ws14.tpe_uib_05.ueb3;
 
-public class Dictionary implements AssociativeArray {
+public class typesafeAssociativeArray<K, V> implements
+		AssociativeArray<K, V> {
 
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public boolean containsValue(Object value) {
+	public boolean containsValue(V value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean containsKey(Object key) {
+	public boolean containsKey(K key) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public int get(Object key) {
+	public V get(K key) {
 		// TODO Auto-generated method stub
-		return 0;
+		return null;
 	}
 
 	@Override
@@ -33,15 +34,15 @@ public class Dictionary implements AssociativeArray {
 	}
 
 	@Override
-	public void put() {
+	public void put(K key, V value) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public void putAll() {
+	public void putAll(typesafeAssociativeArray<K, V> uebergebenesArray) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -59,34 +60,25 @@ public class Dictionary implements AssociativeArray {
 	@Override
 	public void update(Object value) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void forEach() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void extractAll() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void map() {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	public void keys() {
-		
-	}
-	
-	public void values () {
-		
-	}
-	
 
 }
