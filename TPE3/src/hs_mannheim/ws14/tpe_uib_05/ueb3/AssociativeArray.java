@@ -12,9 +12,9 @@ import java.util.function.BiFunction;
  * @author Pınar Kırış 1332722
  * 
  * @param <K>
- *            Key des Arrays
+ *            Schluessel des Arrays
  * @param <V>
- *            Value des Arrays
+ *            Wert des Arrays
  */
 
 public interface AssociativeArray<K, V> {
