@@ -17,12 +17,32 @@ import java.util.function.BiFunction;
  */
 public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 
+	/**
+	 * Die Klasse Knoten ist eine innere Klasse des assoziativen Arrays.
+	 *
+	 */
+
 	class Knoten {
+
+		// Attribute
 
 		private final K key;
 		private V value;
 		private Knoten nodeLeft;
 		private Knoten nodeRight;
+
+		/**
+		 * Konstruktor, der einen neuen Knoten erzeugt
+		 * 
+		 * @param key
+		 *            Schluessel des Knotens
+		 * @param value
+		 *            Wert des Knotens
+		 * @param nodeLeft
+		 *            linker Kinderknoten
+		 * @param nodeRight
+		 *            rechter Kinderknoten
+		 */
 
 		private Knoten(K key, V value, Knoten nodeLeft, Knoten nodeRight) {
 			this.key = key;
@@ -31,30 +51,78 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 			this.nodeRight = nodeRight;
 		}
 
+		/**
+		 * Konstruktor, der einen neuen Knoten erzeugt, wobei dieser keine
+		 * Kinderknoten besitzt.
+		 * 
+		 * @param key
+		 *            Schluessel des Knotens
+		 * @param value
+		 *            Wert des Knotens
+		 */
+
 		private Knoten(K key, V value) {
 			this(key, value, null, null);
 		}
+
+		/**
+		 * Liefert den Schluessel des Knotens zurueck.
+		 * 
+		 * @return Gibt Schluessel des Knotens zurueck
+		 */
 
 		protected K getKey() {
 			return this.key;
 		}
 
+		/**
+		 * Liefert Wert des Knotens zurueck.
+		 * 
+		 * @return Gibt Wert des Knotens zurueck
+		 */
+
 		protected V getValue() {
 			return this.value;
 		}
+
+		/**
+		 * Ermoeglicht eine Aenderung des Wertes bezueglich des Knotens.
+		 * 
+		 * @param value
+		 *            Aendert den Wert des Knotens
+		 */
 
 		private void setValue(V value) {
 			this.value = value;
 
 		}
 
+		/**
+		 * Liefert den linken Kinderknoten zurueck.
+		 * 
+		 * @return Gibt den linken Kinderknoten zurueck
+		 */
+
 		private Knoten getLinks() {
 			return this.nodeLeft;
 		}
 
+		/**
+		 * Liefert den rechten Kinderknoten zurueck.
+		 * 
+		 * @return Gibt den rechten Kinderknoten zurueck
+		 */
+
 		private Knoten getRechts() {
 			return this.nodeRight;
 		}
+
+		/**
+		 * Prueft ob der linke Kinderknoten vorhanden ist.
+		 * 
+		 * @return Gibt Aussage ob der linke Kinderknoten vorhanden ist zurueck.
+		 * 
+		 */
 
 		private boolean hasLeftChild() {
 			if (this.nodeLeft != null) {
@@ -63,6 +131,14 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 			return false;
 		}
 
+		/**
+		 * Prueft ob der rechte Kinderknoten vorhanden ist.
+		 * 
+		 * @return Gibt Aussage ob der rechte Kinderknoten vorhanden ist
+		 *         zurueck.
+		 * 
+		 */
+
 		private boolean hasRightChild() {
 			if (this.nodeRight != null) {
 				return true;
@@ -70,6 +146,11 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 			return false;
 
 		}
+
+		/**
+		 * Ermoeglicht den Hashcode eines Objektes zu generieren.
+		 * 
+		 */
 
 		@Override
 		public int hashCode() {
@@ -84,6 +165,10 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 			result = prime * result + ((value == null) ? 0 : value.hashCode());
 			return result;
 		}
+
+		/**
+		 * Ermoeglicht die Ueberpruefung, ob zwei Objekte identisch sind.
+		 */
 
 		@Override
 		public boolean equals(Object obj) {
@@ -124,11 +209,24 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 		}
 	}
 
+	// Wurzelknoten des assoziativen Arrays
 	protected Knoten root;
+
+	/**
+	 * Konstruktor, der ein leeres assoziatives Array erzeugt.
+	 */
 
 	public typesafeAssociativeArray() {
 		this.root = null;
 	}
+
+	/**
+	 * Konstruktor, der ein assoziatives Array erzeugt.
+	 * 
+	 * @param baumKnoten
+	 *            Bezeichnet den Knoten, der die Wurzel des assoziativen Arrays
+	 *            symbolisiert.
+	 */
 
 	public typesafeAssociativeArray(Knoten baumKnoten) {
 		this.root = baumKnoten;
@@ -136,12 +234,28 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 
 	// Binärbaummethoden
 
+	/**
+	 * Methode die dazu beitraegt einen neuen Knoten hinzuzufügen.
+	 * 
+	 * @param key
+	 *            Schluessel des Knotens
+	 * @param value
+	 *            Wert des Knotens
+	 */
+
 	public void addKnoten(K key, V value) {
 
 		Knoten newKnoten = new Knoten(key, value);
 		setKnoten(newKnoten);
 
 	}
+
+	/**
+	 * Diese Methode ermoeglicht das setzen eines neuen Knotens.
+	 * 
+	 * @param neuerKnoten
+	 *            neu zu setzender Knoten
+	 */
 
 	protected void setKnoten(Knoten neuerKnoten) {
 
@@ -152,11 +266,22 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 		}
 	}
 
+	/**
+	 * Diese Methode ermoeglicht das setzen bzw. einsortieren eines neuen
+	 * Knotens, indem ein Platz dafuer gesucht wird und er daraufhin eingesetzt
+	 * wird (rekursiv).
+	 * 
+	 * @param setzePunkt
+	 *            Punkt an dem der Knoten gestzt wird (Beginn: Wurzel)
+	 * @param neuerKnoten
+	 *            neu zu setzender Knoten
+	 */
+
 	private void setKnoten(Knoten setzePunkt, Knoten neuerKnoten) {
 
 		/*
 		 * Ist der Hashcode des einzusetzenden Knoten kleiner als der Hashcode
-		 * des momentanden Knotens?
+		 * des momentanen Knotens?
 		 */
 
 		if (neuerKnoten.key.hashCode() < setzePunkt.key.hashCode()) {
@@ -171,8 +296,9 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 
 		/*
 		 * Ist der Hashcode des einzusetzenden Knoten groesser als der Hashcode
-		 * des momentanden Knotens?
+		 * des momentanen Knotens?
 		 */
+
 		if (neuerKnoten.key.hashCode() > setzePunkt.key.hashCode()) {
 
 			if (setzePunkt.nodeRight != null) {
@@ -184,6 +310,16 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 
 	}
 
+	/**
+	 * Diese Methode dient dazu, einen Knoten zu finden.
+	 * 
+	 * @param aktuellerKnoten
+	 *            Aktueller Knoten
+	 * @param gesuchterSchluessel
+	 *            Schluessel des gesuchten Knotens
+	 * @return Gibt den gefundenen Knoten zurueck (sofern er gefunden wurde)
+	 */
+
 	private Knoten findeKnoten(Knoten aktuellerKnoten, K gesuchterSchluessel) {
 
 		if (containsKey(gesuchterSchluessel)) {
@@ -191,9 +327,11 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 			if (gesuchterSchluessel.hashCode() == aktuellerKnoten.getKey()
 					.hashCode()) {
 
-				// DIESE IF BEDINGUNG UND DER ELSE TEIL DIENEN DER
-				// KOLLISONSBEHANDLUNG BEI GLEICHEM HASHCODE
-				// ABER UNGELCIHEM SCHLUESSEL
+				/*
+				 * Diese if-Bedingung dient der Kollisionsbehandlung bei
+				 * gleichem Hashcode, jedoch ungleichem Schluessel
+				 */
+
 				if (gesuchterSchluessel.equals(aktuellerKnoten.getKey())) {
 					return aktuellerKnoten;
 				} else {
@@ -203,6 +341,7 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 			}
 
 			// Aktueller Knoten hat einen groesseren Hashwert
+
 			if (gesuchterSchluessel.hashCode() < aktuellerKnoten.getKey()
 					.hashCode()) {
 				return findeKnoten(aktuellerKnoten.nodeLeft,
@@ -210,6 +349,7 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 			}
 
 			// Aktueller Knoten hat einen kleineren Hashwert
+
 			if (gesuchterSchluessel.hashCode() > aktuellerKnoten.getKey()
 					.hashCode()) {
 				return findeKnoten(aktuellerKnoten.nodeRight,
@@ -220,29 +360,56 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 		return null;
 	}
 
+	/**
+	 * Diese Methode gibt den jeweiligen Elternknoten zurueck.
+	 * 
+	 * @param schluesselDesGesuchtenKnoten
+	 *            gesuchter Knoten
+	 * @return Gibt den jeweiligen Elternknoten zurueck
+	 */
+
 	private Knoten getElternknoten(K schluesselDesGesuchtenKnoten) {
 
 		return getElternknoten(this.root, schluesselDesGesuchtenKnoten);
 
 	}
 
+	/**
+	 * Diese Methode gibt den jeweiligen Elternknoten, indem es den Baum anhand
+	 * des Schluessels durchsucht.
+	 * 
+	 * @param aktuellerKnoten
+	 *            Aktueller Knoten
+	 * @param schluesselDesGesuchtenKnoten
+	 *            Schluessel des gesuchten Knotens
+	 * @return Gibt den gefunden Knoten zurueck
+	 */
+
 	private Knoten getElternknoten(Knoten aktuellerKnoten,
 			K schluesselDesGesuchtenKnoten) {
 
-		// Zunächst muss überprüft werden ob der aktuelle Knoten überhaupt
-		// Kindknoten hat
+		/*
+		 * Zunächst muss überprüft werden ob der aktuelle Knoten überhaupt
+		 * Kindknoten besitzt
+		 */
 
-		// WENN DER KNOTEN EINE LINKS REFERENZ HAT
+		// Falls der Knoten eine linke Referenz hat
+
 		if (aktuellerKnoten.hasLeftChild()) {
-			// Schluessel des linken Kindknotens gleich dem gesuchten
-			// Schluessel?
+
+			/*
+			 * Schluessel des linken Kindknotens gleich dem gesuchten
+			 * Schluessel?
+			 */
+
 			if (aktuellerKnoten.getLinks().getKey()
 					.equals(schluesselDesGesuchtenKnoten)) {
 				return aktuellerKnoten;
 
-				// Wenn nicht
 			} else {
-				// Rekursiv weitersuchen
+
+				// rekursive Suche
+
 				if (schluesselDesGesuchtenKnoten.hashCode() < aktuellerKnoten
 						.getKey().hashCode()) {
 
@@ -255,7 +422,8 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 			}
 		}
 
-		// WENN DER KNOTEN EINE RECHTS REFERENZ HAT
+		// Falls der Knoten eine rechte Referenz hat
+
 		if (aktuellerKnoten.hasRightChild()) {
 			if (aktuellerKnoten.getRechts().getKey()
 					.equals(schluesselDesGesuchtenKnoten)) {
@@ -276,20 +444,38 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 
 	}
 
+	private static String zeichenkette;
+
+	/**
+	 * Liefert alle Schluessel-Wert-Paare des typesafeAssociativeArrays als
+	 * Zeichenkette.
+	 * 
+	 * @return Gibt alle Schluessel-Wert-Paare des typesafeAssociativeArrays als
+	 *         Zeichenkette zurueck
+	 */
+
 	public String toString() {
-		String zeichenkette = "{ ";
+		zeichenkette = "{ ";
 
 		if (this.isEmpty()) {
-			zeichenkette = "Leer }";
+			zeichenkette += "Leer }";
 		} else {
+
 			BiConsumer<K, V> biConsumer = (key, value) -> {
-				String zeichenSchluessel = String.valueOf(key);
-				String zeichenWert = String.valueOf(value);
+
+				String stringSchluessel = (String.valueOf(key));
+				String stringWert = String.valueOf(value);
+				String result = stringSchluessel + "=" + stringWert + ", ";
+				zeichenkette += result;
 			};
 			this.forEach(biConsumer);
-		}
 
+			// löscht das letzte Komma und Leerzeichen
+			zeichenkette = zeichenkette.substring(0, zeichenkette.length() - 2);
+			zeichenkette += " }";
+		}
 		return zeichenkette;
+
 	}
 
 	// Interface Methoden
@@ -306,6 +492,16 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 		return searchValue(node, value);
 	}
 
+	/**
+	 * Ueberprueft, ob ein Knoten den uebergebenen Wert besitzt.
+	 * 
+	 * @param node
+	 *            Knoten der ueberprueft wird
+	 * @param value
+	 *            Wert nach dem gesucht wird
+	 * @return Gibt das jeweilige Ergebnis zurueck
+	 */
+
 	private boolean searchValue(Knoten node, V value) {
 		boolean aussage = false;
 
@@ -315,14 +511,15 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 				return aussage = true;
 			}
 
-			// Hat der Knoten ueberhaupt einen linken Kindsknoten? wenn ja suche
-			// dort weiter
+			// Hat der Knoten ueberhaupt einen linken Kindknoten?
+
 			if (node.hasLeftChild()) {
 				aussage = searchValue(node.getLinks(), value);
 
 			}
+
 			// Wenn nicht suche rechts(falls es einen rechten Knoten gibt)
-			// weiter
+
 			if (node.hasRightChild() && aussage == false) {
 				aussage = searchValue(node.getRechts(), value);
 			}
@@ -336,6 +533,16 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 		Knoten node = this.root;
 		return searchKey(node, key);
 	}
+
+	/**
+	 * Ueberprueft, ob ein Knoten den uebergebenen Schluessel besitzt.
+	 * 
+	 * @param node
+	 *            Knoten der ueberprueft wird
+	 * @param key
+	 *            Schluessel der gesucht wird
+	 * @return Gibt das jeweilige Ergebnis zurueck
+	 */
 
 	private boolean searchKey(Knoten node, K key) {
 
@@ -370,6 +577,16 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 		return gesuchterWert;
 	}
 
+	/**
+	 * Gibt den Wert der mit dem uebergebenen Schluessel verbunden ist zurueck.
+	 * 
+	 * @param node
+	 *            Knoten der nach dem uebergebenen Schluessel ueberprueft wird
+	 * @param key
+	 *            Schluessel der uebergeben wird
+	 * @return Gibt den Wert des uebergebenen Schluessels zurueck
+	 */
+
 	private V getValue(Knoten node, K key) {
 		V gesuchterWert = null;
 
@@ -377,11 +594,15 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 			if (node.getKey().equals(key)) {
 				gesuchterWert = node.getValue();
 			} else {
+
 				// Suche im linken Teilbaum fortsetzen
 				gesuchterWert = getValue(node.getLinks(), key);
 
-				// Wenn Schluessel nicht im linken Teilbaum vorhanden ist, dann
-				// such im rechten Teilbaum weiter
+				/*
+				 * Wenn Schluessel nicht im linken Teilbaum vorhanden ist, dann
+				 * such im rechten Teilbaum weiter
+				 */
+
 				if (gesuchterWert == null) {
 					gesuchterWert = getValue(node.getRechts(), key);
 				}
@@ -426,12 +647,15 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 		boolean wasRight = false;
 
 		// Wenn der Schluessel enthalten ist
+
 		if (containsKey(key)) {
+
 			// wird dessen Wert seperat gespeichert
+
 			V value = get(key);
 
-			// jetzt sucht man nach dem Eltenknoten anhand des übergeben
-			// schlüssel
+			// Suche nach dem Elternknoten des uebergebenen Schluessels
+
 			if (!key.equals(root.getKey())) {
 
 				parentNode = getElternknoten(key);
@@ -440,10 +664,14 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 
 					// Ist der zu loeschende Knoten links oder rechts?
 					if (key.hashCode() < parentNode.key.hashCode()) {
-						// Ist der Hashcode kleriner, muss er links sein
+
+						// Ist der Hashcode kleiner, muss er links sein
+
 						removeNode = parentNode.nodeLeft;
 					} else {
-						// ist der Hashcode größer, MUSS er rechts sein
+
+						// ist der Hashcode größer, muss er rechts sein
+
 						removeNode = parentNode.nodeRight;
 					}
 				}
@@ -508,6 +736,13 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 		}
 	}
 
+	/**
+	 * Diese Methode dient zum zaehlen der enthalten Knoten im Baum
+	 * 
+	 * @param aktuellerKnoten
+	 *            Aktueller Knoten
+	 * @return Groeße des Baums
+	 */
 	private int size(Knoten aktuellerKnoten) {
 
 		if (aktuellerKnoten != null) {
@@ -543,10 +778,23 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 
 	}
 
+	/**
+	 * Diese Methode uebergibt alle Schluessel-Wert-Paare an das
+	 * BiConsumer-Interface
+	 * 
+	 * @param aktuellerKnoten
+	 *            Aktueller Knoten
+	 * @param biConsumer
+	 *            BiConsumer Interface
+	 */
+
 	private void forEach(Knoten aktuellerKnoten, BiConsumer<K, V> biConsumer) {
 
-		// Der BiConsumer soll die Schluessel-Werte-Paare des aktuellen Knotens
-		// annehmen
+		/*
+		 * Der BiConsumer soll die Schluessel-Wert-Paare des aktuellen Knotens
+		 * annehmen
+		 */
+
 		biConsumer.accept(aktuellerKnoten.getKey(), aktuellerKnoten.getValue());
 
 		// Dies gilt auf für die weiteren Knoten im linken Teilbaum
