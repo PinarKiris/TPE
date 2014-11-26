@@ -15,5 +15,25 @@ package hs_mannheim.ws14.tpe_uib_05.ueb3;
 
 public class StringAssociativeArray<V> extends
 		typesafeAssociativeArray<String, V> {
+	
+	/**
+     * Konstruktur zum erzeugen eines leeren StringAssociativeArray-Obejektes.
+     */
+	
+    public StringAssociativeArray() {
+        super();
+    }
+
+    /**
+     * Konstruktur zum erzeugen eines StringAssociativeArray-Objektes mit
+     * einer Wurzel.
+     * 
+     * @param baumKnoten
+     *            Wurzel des Baums
+     */
+    public StringAssociativeArray(Knoten baumKnoten) {
+        super(baumKnoten);
+
+    }
 
 }
