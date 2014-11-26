@@ -3,10 +3,9 @@ package hs_mannheim.ws14.tpe_uib_05.ueb3;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 
-
 /**
- * Klasse zum generischen "Assoziativen Array". Diese Klasse implementiert das
- * Interface "AssociativeArray" und arbeitet mit einem binären Suchbaum.
+ * Klasse zum generischen "Assoziativen Array", welches das Interface
+ * "AssociativeArray" implementiert und mit einem binären Suchbaum arbeitet.
  * 
  * @author Dennis Keßler 1326697
  * @author Pınar Kırış 1332722
@@ -420,84 +419,84 @@ public class typesafeAssociativeArray<K, V> implements AssociativeArray<K, V> {
 	public V remove(K key) {
 
 		Knoten parentNode = null;
-        Knoten removeNode = null;
-        Knoten leftChild = null;
-        Knoten rightChild = null;
-        boolean wasLeft = false;
-        boolean wasRight = false;
+		Knoten removeNode = null;
+		Knoten leftChild = null;
+		Knoten rightChild = null;
+		boolean wasLeft = false;
+		boolean wasRight = false;
 
-        // Wenn der Schluessel enthalten ist
-        if (containsKey(key)) {
-            // wird dessen Wert seperat gespeichert
-            V value = get(key);
+		// Wenn der Schluessel enthalten ist
+		if (containsKey(key)) {
+			// wird dessen Wert seperat gespeichert
+			V value = get(key);
 
-            // jetzt sucht man nach dem Eltenknoten anhand des übergeben
-            // schlüssel
-            if (!key.equals(root.getKey())) {
+			// jetzt sucht man nach dem Eltenknoten anhand des übergeben
+			// schlüssel
+			if (!key.equals(root.getKey())) {
 
-                parentNode = getElternknoten(key);
+				parentNode = getElternknoten(key);
 
-                if (parentNode != null) {
+				if (parentNode != null) {
 
-                    // Ist der zu loeschende Knoten links oder rechts?
-                    if (key.hashCode() < parentNode.key
-                            .hashCode()) {
-                        // Ist der Hashcode kleriner, muss er links sein
-                        removeNode = parentNode.nodeLeft;
-                    } else {
-                        // ist der Hashcode größer, MUSS er rechts sein
-                        removeNode = parentNode.nodeRight;
-                    }
-                }
-            }
-            // Wenn der zu löschende Knoten die wurzel ist:
-            else {
-                removeNode = this.root;
-            }
+					// Ist der zu loeschende Knoten links oder rechts?
+					if (key.hashCode() < parentNode.key.hashCode()) {
+						// Ist der Hashcode kleriner, muss er links sein
+						removeNode = parentNode.nodeLeft;
+					} else {
+						// ist der Hashcode größer, MUSS er rechts sein
+						removeNode = parentNode.nodeRight;
+					}
+				}
+			}
+			// Wenn der zu löschende Knoten die wurzel ist:
+			else {
+				removeNode = this.root;
+			}
 
-            // Ist ein linker Kindknoten vorhanden?
-            if (removeNode.hasLeftChild()) {
-                leftChild = removeNode.nodeLeft;
-                wasLeft = true;
-            }
+			// Ist ein linker Kindknoten vorhanden?
+			if (removeNode.hasLeftChild()) {
+				leftChild = removeNode.nodeLeft;
+				wasLeft = true;
+			}
 
-            // Ist ein rechter Kindknoten vorhanden?
-            if (removeNode.hasRightChild()) {
-                rightChild = removeNode.nodeRight;
-                wasRight = true;
-            }
+			// Ist ein rechter Kindknoten vorhanden?
+			if (removeNode.hasRightChild()) {
+				rightChild = removeNode.nodeRight;
+				wasRight = true;
+			}
 
-            // Loeschung der Referenz
-            if (parentNode != null) {
-                if (key.hashCode() < parentNode.key.hashCode()) {
-                    parentNode.nodeLeft = null;
-                } else {
-                	parentNode.nodeRight = null;
-                }
-            } else {
-                if (key.equals(root.getKey())) {
-                    this.clear();
-                } else {
-                    return null;
-                }
-            }
+			// Loeschung der Referenz
+			if (parentNode != null) {
+				if (key.hashCode() < parentNode.key.hashCode()) {
+					parentNode.nodeLeft = null;
+				} else {
+					parentNode.nodeRight = null;
+				}
+			} else {
+				if (key.equals(root.getKey())) {
+					this.clear();
+				} else {
+					return null;
+				}
+			}
 
-            if (wasRight) {
-                // fügt den ehemaligen linken Kindknoten wieder an
-                setKnoten(rightChild);
-            }
-            if (wasLeft) {
-                // fügt den ehemaligen rechten Kindknoten wieder an
-                setKnoten(leftChild);
-            }
+			if (wasRight) {
+				// fügt den ehemaligen linken Kindknoten wieder an
+				setKnoten(rightChild);
+			}
+			if (wasLeft) {
+				// fügt den ehemaligen rechten Kindknoten wieder an
+				setKnoten(leftChild);
+			}
 
-            return value;
+			return value;
 
-        } else {
-            return null;
-        }
+		} else {
+			return null;
+		}
 
-    }
+	}
+
 	@Override
 	public int size() {
 
