@@ -148,6 +148,6 @@ public interface AssociativeArray<K, V> {
 	 */
 
 	public abstract typesafeAssociativeArray<K, V> map(
-			BiFunction<K, V, typesafeAssociativeArray<K, V>> biFunction);
+			BiFunction<K, V, V> biFunction);
 
 }
